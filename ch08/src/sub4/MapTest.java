@@ -27,6 +27,17 @@ public class MapTest {
 		System.out.println("map key-B : "+map.get('B'));
 		System.out.println("map key-C : "+map.get('C'));
 		
+		Iterator<Character> it = map.keySet().iterator();
+		
+		while(it.hasNext()) {
+			
+			String value = map.get(it.next());
+			System.out.println(value);
+			
+		}
+		
+		
+		
 		//반복문
 		for(char key : map.keySet()) {
 			//map의 키값을 set으로 반복처리

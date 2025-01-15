@@ -27,12 +27,13 @@ public class SetTest {
 		
 		while(it.hasNext()) {
 			//다음 데이터 존재할 때 까지 반복 실행
-			System.out.println(it.next());
+			System.out.print(it.next());
 		}
+		System.out.println();
 		
 		//반복문으로 데이터 출력
 		for(int num : set) {
-			System.out.println(num);
+			System.out.print(num);
 		}
 		
 		//데이터 출력
