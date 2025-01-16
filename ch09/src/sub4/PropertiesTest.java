@@ -42,13 +42,15 @@ public class PropertiesTest {
 		Properties sourceProp = new Properties();
 		
 		try {
-			FileInputStream fis = new FileInputStream(source);
+			//한글 안깨짐
+			//FileReader fr = new FileReader(source); //스트림 생성
+			//sourceProp.load(fr); //프로퍼티 파일 읽기
+			//fr.close(); //스트림 해제
 			
-			//프로퍼티 파일 읽기
-			sourceProp.load(fis);
-			
-			//스트림 해제
-			fis.close();
+			//한글 깨짐
+			FileInputStream fis = new FileInputStream(source); //스트림 생성
+			sourceProp.load(fis); //프로퍼티 파일 읽기
+			fis.close(); //스트림 해제
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

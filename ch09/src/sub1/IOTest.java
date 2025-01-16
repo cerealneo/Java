@@ -29,7 +29,7 @@ public class IOTest {
 					break;
 				}
 				
-				//숫자를 문자료 변환
+				//숫자를 문자로 변환
 				char ch = (char) data;
 				System.out.print(ch);
 				
