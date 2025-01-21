@@ -36,6 +36,7 @@ public class StreamMapTest {
 
 	public static void main(String[] args) {
 		
+		//불변리스트 생성
 		List<Person> persons = List.of(
 					new Person("김유신",23),
 					new Person("김춘추",21),
