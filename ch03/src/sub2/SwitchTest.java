@@ -35,7 +35,7 @@ public class SwitchTest {
 			System.out.println("number 은 숫자가 아님");
 			break;
 		
-		
+			
 		}
 	}
 }
