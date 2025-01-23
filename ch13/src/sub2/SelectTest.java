@@ -16,6 +16,7 @@ import java.util.List;
 public class SelectTest {
 
 	public static void main(String[] args) {
+		// DB정보
 		final String HOST = "jdbc:mysql://127.0.0.1:3306/studydb";
 		final String USER = "root";
 		final String PASS = "1234";

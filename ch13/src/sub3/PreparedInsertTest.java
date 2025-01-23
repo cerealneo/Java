@@ -24,7 +24,8 @@ public class PreparedInsertTest {
 			Connection conn = DriverManager.getConnection(HOST, USER, PASS);
 
 			// 3단계 SQL 실행 객체 생성
-			String sql = "INSERT INTO `user1` VALUES (?,?,?,?,?)"; //쿼리 피라미터 ?를 사용해 쿼리문 작성
+			//쿼리 피라미터 ?를 사용해 쿼리문 작성
+			String sql = "INSERT INTO `user1` VALUES (?,?,?,?,?)"; 
 			
 			//preared 객체생성
 			PreparedStatement psmt = conn.prepareStatement(sql);

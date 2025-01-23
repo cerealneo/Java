@@ -8,8 +8,8 @@ import java.sql.*;
  *  내용 : java JDBC 접속 테스트 실습하기
  *  
  *  JDBC
- *   - 자바 데이터베이스 커넥션
- *   - 자바 기술로 데이터베이스를 연결하기 위한 기술 표준
+ *  - Java DataBase Connection
+ *  - Java 기술로 데이터베이스를 연결하기 위한 기술 표준 
 */
 public class JDBCTest {
 
@@ -23,7 +23,7 @@ public class JDBCTest {
 		try {
 			//1단계 jdbc 드라이버 로드
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			//2단계 데이터 베이스 접속
+			//2단계 데이터베이스 접속
 			Connection conn = DriverManager.getConnection(host, user,pass);
 			
 			if(conn != null) {

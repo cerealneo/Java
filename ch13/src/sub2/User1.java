@@ -1,5 +1,6 @@
 package sub2;
 
+//User1 테이블 엔티티 클래스
 public class User1 {
 	private String uid;
 	private String name;

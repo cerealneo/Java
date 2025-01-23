@@ -53,6 +53,7 @@ public class PreparedSelectTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		// 리스트 출력
 		for (User1 user1 : users) {
 			System.out.println(user1);
 		}
