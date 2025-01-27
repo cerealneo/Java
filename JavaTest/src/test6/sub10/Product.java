@@ -1,5 +1,7 @@
 package test6.sub10;
 
-public class Product {
-
+public interface Product {
+	
+    String getName();
+    int getPrice();
 }

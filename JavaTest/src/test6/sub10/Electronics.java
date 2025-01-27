@@ -1,10 +1,10 @@
 package test6.sub10;
 
-public class Food implements Product {
+public class Electronics implements Product {
     private String name;
     private int price;
 
-    public Food(String name, int price) {
+    public Electronics(String name, int price) {
         this.name = name;
         this.price = price;
     }
