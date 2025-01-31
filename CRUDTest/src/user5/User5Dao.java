@@ -37,15 +37,15 @@ public class User5Dao {
 	private ResultSet rs = null;
 
 	// 기본 CRUD 메서드
-	public void insertUser1(User5 user) {
+	public void insertUser5(User5 user) {
 
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.INSERT_USER1);
-			psmt.setString(1, user.getUid());
-			psmt.setString(2, user.getName());
-			psmt.setString(3, user.getHp());
-			psmt.setInt(4, user.getAge());
+			psmt = conn.prepareStatement(SQL.INSERT_USER5);
+			psmt.setString(1, user.getName());
+			psmt.setString(2, user.getGender());
+			psmt.setInt(3, user.getAge());
+			psmt.setString(4, user.getAddr());
 			psmt.executeUpdate();
 			closeAll();
 
@@ -54,24 +54,25 @@ public class User5Dao {
 		}
 	}
 
-	public User5 selectUser1(String uid) {
+	public User5 selectUser5(int seq) {
 
 		User5 user = null;
 
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.SELECT_USER1);
-			psmt.setString(1, uid);
+			psmt = conn.prepareStatement(SQL.SELECT_USER5);
+			psmt.setInt(1, seq);
 
 			rs = psmt.executeQuery();
 
 			// SELECT의 결과가 0 또는 1이기 때문에 while 대신 if문으로 결과 처리
 			if (rs.next()) {
 				user = new User5();
-				user.setUid(rs.getString(1));
+				user.setSeq(rs.getInt(1));
 				user.setName(rs.getString(2));
-				user.setHp(rs.getString(3));
+				user.setGender(rs.getString(3));
 				user.setAge(rs.getInt(4));
+				user.setAddr(rs.getString(5));
 			}
 			closeAll();
 
@@ -81,21 +82,22 @@ public class User5Dao {
 		return user;
 	}
 
-	public List<User5> selectUser1List() {
+	public List<User5> selectUser5List() {
 
 		List<User5> list = new ArrayList<>();
 
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery(SQL.SELECT_USER1_LIST);
+			rs = stmt.executeQuery(SQL.SELECT_USER5_LIST);
 
 			while (rs.next()) {
 				User5 user = new User5();
-				user.setUid(rs.getString(1));
+				user.setSeq(rs.getInt(1));
 				user.setName(rs.getString(2));
-				user.setHp(rs.getString(3));
+				user.setGender(rs.getString(3));
 				user.setAge(rs.getInt(4));
+				user.setAddr(rs.getString(5));
 				list.add(user);
 			}
 			closeAll();
@@ -105,14 +107,15 @@ public class User5Dao {
 		return list;
 	}
 
-	public void updateUser1(User5 user) {
+	public void updateUser5(User5 user) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.UPDATE_USER1);
+			psmt = conn.prepareStatement(SQL.UPDATE_USER5);
 			psmt.setString(1, user.getName());
-			psmt.setString(2, user.getHp());
+			psmt.setString(2, user.getGender());
 			psmt.setInt(3, user.getAge());
-			psmt.setString(4, user.getUid());
+			psmt.setString(4, user.getAddr());
+			psmt.setInt(5,user.getSeq());
 			psmt.executeUpdate();
 			closeAll();
 		} catch (Exception e) {
@@ -120,11 +123,11 @@ public class User5Dao {
 		}
 	}
 
-	public void deleteUser1(String uid) {
+	public void deleteUser5(int seq) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.DELETE_USER1);
-			psmt.setString(1, uid);
+			psmt = conn.prepareStatement(SQL.DELETE_USER5);
+			psmt.setInt(1, seq);
 			psmt.executeUpdate();
 			closeAll();
 

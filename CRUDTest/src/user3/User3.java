@@ -9,44 +9,80 @@ public class User3 {
 
 	private String uid;
 	private String name;
+	private String birth;
 	private String hp;
-	private int age;
+	private String addr;
 	
 	public User3() {}
-	public User3(String uid, String name, String hp, int age) {
+	
+	
+	public User3(String uid, String name, String birth, String hp, String addr) {
 		this.uid = uid;
 		this.name = name;
+		this.birth = birth;
 		this.hp = hp;
-		this.age = age;
+		this.addr = addr;
 	}
+
+
 	
+
 	public String getUid() {
 		return uid;
 	}
+
+
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
+
+
 	public String getName() {
 		return name;
 	}
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	public String getBirth() {
+		return birth;
+	}
+
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+
 	public String getHp() {
 		return hp;
 	}
+
+
 	public void setHp(String hp) {
 		this.hp = hp;
 	}
-	public int getAge() {
-		return age;
+
+
+	public String getAddr() {
+		return addr;
 	}
-	public void setAge(int age) {
-		this.age = age;
+
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
+
+
 	@Override
 	public String toString() {
-		return "User1 [uid=" + uid + ", name=" + name + ", hp=" + hp + ", age=" + age + "]";
+		return "User3 [uid=" + uid + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", addr=" + addr + "]";
 	}
+
+
+	
 	
 }

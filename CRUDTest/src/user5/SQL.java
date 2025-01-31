@@ -1,9 +1,18 @@
 package user5;
 
 public class SQL {
-	public static final String INSERT_USER1 = "INSERT INTO `User1` VALUES (?,?,?,?)";
-	public static final String SELECT_USER1_LIST = "SELECT * FROM `User1`";
-	public static final String SELECT_USER1 = "SELECT * FROM `User1` WHERE `uid`=?";
-	public static final String UPDATE_USER1 = "UPDATE `User1` SET `name`=?, `hp`=?, `age`=? WHERE `uid`=?";
-	public static final String DELETE_USER1 = "DELETE FROM `User1` WHERE `uid`=?";
+	public static final String INSERT_USER5 = "INSERT INTO `User5` SET "
+																			+ "`name`=?,"
+																			+ "`gender`=?,"
+																			+ "`age`=?,"
+																			+ "`addr`=?";
+	public static final String SELECT_USER5_LIST = "SELECT * FROM `User5`";
+	public static final String SELECT_USER5 = "SELECT * FROM `User5` WHERE `seq`=?";
+	public static final String UPDATE_USER5 = "UPDATE `User5` SET "
+																			+ "`name`=?,"
+																			+ "`gender`=?,"
+																			+"`age`=?,"
+																			+ "`addr`=? "
+																			+ "WHERE `seq`=?";
+	public static final String DELETE_USER5 = "DELETE FROM `User5` WHERE `seq`=?";
 }

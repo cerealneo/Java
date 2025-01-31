@@ -6,47 +6,86 @@ package user5;
  */
 
 public class User5 {
-
-	private String uid;
+	private int seq;
 	private String name;
-	private String hp;
+	private String gender;
 	private int age;
+	private String addr;
 	
 	public User5() {}
-	public User5(String uid, String name, String hp, int age) {
-		this.uid = uid;
+	
+	public User5(String name, String gender, int age, String addr) {
 		this.name = name;
-		this.hp = hp;
+		this.gender = gender;
 		this.age = age;
+		this.addr = addr;
+	}
+
+	
+	public User5(int seq, String name, String gender, int age, String addr) {
+		this.seq = seq;
+		this.name = name;
+		this.gender = gender;
+		this.age = age;
+		this.addr = addr;
 	}
 	
-	public String getUid() {
-		return uid;
+	public int getSeq() {
+		return seq;
 	}
-	public void setUid(String uid) {
-		this.uid = uid;
+
+
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
+
+
 	public String getName() {
 		return name;
 	}
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getHp() {
-		return hp;
+
+
+	public String getGender() {
+		return gender;
 	}
-	public void setHp(String hp) {
-		this.hp = hp;
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
+
+
 	public int getAge() {
 		return age;
 	}
+
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+
+	public String getAddr() {
+		return addr;
+	}
+
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+
 	@Override
 	public String toString() {
-		return "User1 [uid=" + uid + ", name=" + name + ", hp=" + hp + ", age=" + age + "]";
+		return "User5 [seq=" + seq + ", name=" + name + ", gender=" + gender + ", age=" + age + ", addr=" + addr + "]";
 	}
+
+
+	
 	
 }

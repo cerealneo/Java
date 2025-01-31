@@ -56,7 +56,7 @@ public class User2Dao {
 
 	public User2 selectUser2(String uid) {
 
-		User2 user = null;
+		User2 user2 = null;
 
 		try {
 			conn = getConnection();
@@ -67,18 +67,18 @@ public class User2Dao {
 
 			// SELECT의 결과가 0 또는 1이기 때문에 while 대신 if문으로 결과 처리
 			if (rs.next()) {
-				user = new User2();
-				user.setUid(rs.getString(1));
-				user.setName(rs.getString(2));
-				user.setBirth(rs.getString(3));
-				user.setAddr(rs.getString(4));
+				user2 = new User2();
+				user2.setUid(rs.getString(1));
+				user2.setName(rs.getString(2));
+				user2.setBirth(rs.getString(3));
+				user2.setAddr(rs.getString(4));
 			}
 			closeAll();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return user;
+		return user2;
 	}
 
 	public List<User2> selectUser2List() {

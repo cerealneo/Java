@@ -37,15 +37,16 @@ public class User3Dao {
 	private ResultSet rs = null;
 
 	// 기본 CRUD 메서드
-	public void insertUser1(User3 user) {
+	public void insertUser3(User3 user) {
 
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.INSERT_USER1);
+			psmt = conn.prepareStatement(SQL.INSERT_USER3);
 			psmt.setString(1, user.getUid());
 			psmt.setString(2, user.getName());
-			psmt.setString(3, user.getHp());
-			psmt.setInt(4, user.getAge());
+			psmt.setString(3, user.getBirth());
+			psmt.setString(4, user.getHp());
+			psmt.setString(5, user.getAddr());
 			psmt.executeUpdate();
 			closeAll();
 
@@ -54,13 +55,13 @@ public class User3Dao {
 		}
 	}
 
-	public User3 selectUser1(String uid) {
+	public User3 selectUser3(String uid) {
 
 		User3 user = null;
 
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.SELECT_USER1);
+			psmt = conn.prepareStatement(SQL.SELECT_USER3);
 			psmt.setString(1, uid);
 
 			rs = psmt.executeQuery();
@@ -70,8 +71,9 @@ public class User3Dao {
 				user = new User3();
 				user.setUid(rs.getString(1));
 				user.setName(rs.getString(2));
-				user.setHp(rs.getString(3));
-				user.setAge(rs.getInt(4));
+				user.setBirth(rs.getString(3));
+				user.setHp(rs.getString(4));
+				user.setAddr(rs.getString(5));
 			}
 			closeAll();
 
@@ -81,21 +83,22 @@ public class User3Dao {
 		return user;
 	}
 
-	public List<User3> selectUser1List() {
+	public List<User3> selectUser3List() {
 
 		List<User3> list = new ArrayList<>();
 
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery(SQL.SELECT_USER1_LIST);
+			rs = stmt.executeQuery(SQL.SELECT_USER3_LIST);
 
 			while (rs.next()) {
 				User3 user = new User3();
 				user.setUid(rs.getString(1));
 				user.setName(rs.getString(2));
-				user.setHp(rs.getString(3));
-				user.setAge(rs.getInt(4));
+				user.setBirth(rs.getString(3));
+				user.setHp(rs.getString(4));
+				user.setAddr(rs.getString(5));
 				list.add(user);
 			}
 			closeAll();
@@ -105,14 +108,15 @@ public class User3Dao {
 		return list;
 	}
 
-	public void updateUser1(User3 user) {
+	public void updateUser3(User3 user) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.UPDATE_USER1);
+			psmt = conn.prepareStatement(SQL.UPDATE_USER3);
 			psmt.setString(1, user.getName());
-			psmt.setString(2, user.getHp());
-			psmt.setInt(3, user.getAge());
-			psmt.setString(4, user.getUid());
+			psmt.setString(2, user.getBirth());
+			psmt.setString(3, user.getHp());
+			psmt.setString(4, user.getAddr());
+			psmt.setString(5, user.getUid());
 			psmt.executeUpdate();
 			closeAll();
 		} catch (Exception e) {
@@ -120,10 +124,10 @@ public class User3Dao {
 		}
 	}
 
-	public void deleteUser1(String uid) {
+	public void deleteUser3(String uid) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.DELETE_USER1);
+			psmt = conn.prepareStatement(SQL.DELETE_USER3);
 			psmt.setString(1, uid);
 			psmt.executeUpdate();
 			closeAll();

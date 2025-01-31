@@ -11,7 +11,7 @@ public class AppMain {
 	public static void main(String[] args) {
 
 		System.out.println("-------------------");
-		System.out.println("User1 CRUD 실습");
+		System.out.println("User5 CRUD 실습");
 		System.out.println("-------------------");
 
 		Scanner sc = new Scanner(System.in);
@@ -33,38 +33,38 @@ public class AppMain {
 			case 1:
 				// 입력
 				User5 user = inputUser(sc);
-				dao.insertUser1(user);
+				dao.insertUser5(user);
 				System.out.println("INSERT 완료...");
 				break;
 			case 2:
 				// 조회
-				List<User5> user1List = dao.selectUser1List();
-				for (User5 user1 : user1List) {
+				List<User5> user5List = dao.selectUser5List();
+				for (User5 user1 : user5List) {
 					System.out.println(user1);
 				}
 				break;
 			case 3:
 				// 검색
-				String uid = findUser(sc);
-				User5 user1 = dao.selectUser1(uid);
+				int seq = findUser(sc);
+				User5 user1 = dao.selectUser5(seq);
 
 				if (user1 != null) {
 					System.out.println(user1);
 				} else {
-					System.out.println("해당 아이디를 찾을 수 없습니다.");
+					System.out.println("해당 번호를 찾을 수 없습니다.");
 				}
 				break;
 			case 4:
 				// 수정
 				User5 modifiedUser = modifyUser(sc);
-				dao.updateUser1(modifiedUser);
+				dao.updateUser5(modifiedUser);
 				System.out.println("해당 사용자를 수정했습니다.");
 				break;
 			case 5:
 				// 삭제
-				String removeUid = removeUser(sc);
+				int removeSeq = removeUser(sc);
 
-				dao.deleteUser1(removeUid);
+				dao.deleteUser5(removeSeq);
 				System.out.println("해당 사용자를 삭제했습니다.");
 				break;
 			}
@@ -75,57 +75,67 @@ public class AppMain {
 	public static User5 inputUser(Scanner sc) {
 		sc.nextLine(); // 입력 버퍼 비우기
 
-		System.out.print("아이디 입력 : ");
-		String uid = sc.nextLine();
-
 		System.out.print("이름 입력 : ");
 		String name = sc.nextLine();
 
-		System.out.print("휴대폰 입력 : ");
-		String hp = sc.nextLine();
+		System.out.print("성별 입력 : ");
+		String gender = sc.nextLine();
 
 		System.out.print("나이 입력 : ");
 		int age = sc.nextInt();
+		
+		sc.nextLine();
+		
+		System.out.print("주소 입력 : ");
+		String addr = sc.nextLine();
 
-		User5 user = new User5(uid, name, hp, age);
+
+		User5 user = new User5(name, gender, age, addr);
 		return user;
 	}
 
-	public static String findUser(Scanner sc) {
+	public static int findUser(Scanner sc) {
 		sc.nextLine();
 
-		System.out.print("검색 아이디 입력 : ");
-		String uid = sc.nextLine();
+		System.out.print("검색 번호 입력 : ");
+		int seq = sc.nextInt();
 
-		return uid;
+		return seq;
 	}
 
 	public static User5 modifyUser(Scanner sc) {
 		sc.nextLine(); // 입력 버퍼 비우기
-
-		System.out.print("수정 아이디 입력 : ");
-		String uid = sc.nextLine();
+		
+		System.out.print("수정 번호 입력 : ");
+		int seq = sc.nextInt();
+		
+		sc.nextLine();
 
 		System.out.print("수정 이름 입력 : ");
 		String name = sc.nextLine();
 
-		System.out.print("수정 휴대폰 입력 : ");
-		String hp = sc.nextLine();
+		System.out.print("수정 성별 입력 : ");
+		String gender = sc.nextLine();
 
 		System.out.print("수정 나이 입력 : ");
 		int age = sc.nextInt();
+		
+		sc.nextLine();
+		
+		System.out.print("수정 주소 입력 : ");
+		String addr = sc.nextLine();
 
-		User5 user = new User5(uid, name, hp, age);
+		User5 user = new User5(seq,name, gender, age, addr);
 		return user;
 	}
 
-	public static String removeUser(Scanner sc) {
+	public static int removeUser(Scanner sc) {
 		sc.nextLine(); // 입력 버퍼 비우기
 
-		System.out.print("삭제 아이디 입력 : ");
-		String uid = sc.nextLine();
+		System.out.print("삭제 번호 입력 : ");
+		int seq = sc.nextInt();
 
-		return uid;
+		return seq;
 	}
 
 }

@@ -11,7 +11,7 @@ public class AppMain {
 	public static void main(String[] args) {
 
 		System.out.println("-------------------");
-		System.out.println("User1 CRUD 실습");
+		System.out.println("User4 CRUD 실습");
 		System.out.println("-------------------");
 
 		Scanner sc = new Scanner(System.in);
@@ -33,20 +33,20 @@ public class AppMain {
 			case 1:
 				// 입력
 				User4 user = inputUser(sc);
-				dao.insertUser1(user);
+				dao.insertUser4(user);
 				System.out.println("INSERT 완료...");
 				break;
 			case 2:
 				// 조회
-				List<User4> user1List = dao.selectUser1List();
-				for (User4 user1 : user1List) {
+				List<User4> user4List = dao.selectUser4List();
+				for (User4 user1 : user4List) {
 					System.out.println(user1);
 				}
 				break;
 			case 3:
 				// 검색
 				String uid = findUser(sc);
-				User4 user1 = dao.selectUser1(uid);
+				User4 user1 = dao.selectUser4(uid);
 
 				if (user1 != null) {
 					System.out.println(user1);
@@ -57,14 +57,14 @@ public class AppMain {
 			case 4:
 				// 수정
 				User4 modifiedUser = modifyUser(sc);
-				dao.updateUser1(modifiedUser);
+				dao.updateUser4(modifiedUser);
 				System.out.println("해당 사용자를 수정했습니다.");
 				break;
 			case 5:
 				// 삭제
 				String removeUid = removeUser(sc);
 
-				dao.deleteUser1(removeUid);
+				dao.deleteUser4(removeUid);
 				System.out.println("해당 사용자를 삭제했습니다.");
 				break;
 			}
@@ -80,14 +80,23 @@ public class AppMain {
 
 		System.out.print("이름 입력 : ");
 		String name = sc.nextLine();
+		
+		System.out.print("성별 입력 : ");
+		String gender = sc.nextLine();
+		
+		System.out.print("나이 입력 : ");
+		int age = sc.nextInt();
+		
+		sc.nextLine();
 
 		System.out.print("휴대폰 입력 : ");
 		String hp = sc.nextLine();
+		
+		System.out.print("주소 입력 : ");
+		String addr = sc.nextLine();
 
-		System.out.print("나이 입력 : ");
-		int age = sc.nextInt();
 
-		User4 user = new User4(uid, name, hp, age);
+		User4 user = new User4(uid, name, gender, age , hp, addr);
 		return user;
 	}
 
@@ -108,14 +117,22 @@ public class AppMain {
 
 		System.out.print("수정 이름 입력 : ");
 		String name = sc.nextLine();
-
-		System.out.print("수정 휴대폰 입력 : ");
-		String hp = sc.nextLine();
-
+		
+		System.out.print("수정 성별 입력 : ");
+		String gender = sc.nextLine();
+		
 		System.out.print("수정 나이 입력 : ");
 		int age = sc.nextInt();
 
-		User4 user = new User4(uid, name, hp, age);
+		sc.nextLine();
+		
+		System.out.print("수정 휴대폰 입력 : ");
+		String hp = sc.nextLine();
+		
+		System.out.print("수정 주소 입력 : ");
+		String addr = sc.nextLine();
+
+		User4 user = new User4(uid, name, gender, age , hp, addr);
 		return user;
 	}
 

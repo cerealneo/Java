@@ -11,7 +11,7 @@ public class AppMain {
 	public static void main(String[] args) {
 
 		System.out.println("-------------------");
-		System.out.println("User1 CRUD 실습");
+		System.out.println("User3 CRUD 실습");
 		System.out.println("-------------------");
 
 		Scanner sc = new Scanner(System.in);
@@ -33,23 +33,23 @@ public class AppMain {
 			case 1:
 				// 입력
 				User3 user = inputUser(sc);
-				dao.insertUser1(user);
+				dao.insertUser3(user);
 				System.out.println("INSERT 완료...");
 				break;
 			case 2:
 				// 조회
-				List<User3> user1List = dao.selectUser1List();
-				for (User3 user1 : user1List) {
-					System.out.println(user1);
+				List<User3> user3List = dao.selectUser3List();
+				for (User3 user3 : user3List) {
+					System.out.println(user3);
 				}
 				break;
 			case 3:
 				// 검색
 				String uid = findUser(sc);
-				User3 user1 = dao.selectUser1(uid);
+				User3 user3 = dao.selectUser3(uid);
 
-				if (user1 != null) {
-					System.out.println(user1);
+				if (user3 != null) {
+					System.out.println(user3);
 				} else {
 					System.out.println("해당 아이디를 찾을 수 없습니다.");
 				}
@@ -57,14 +57,14 @@ public class AppMain {
 			case 4:
 				// 수정
 				User3 modifiedUser = modifyUser(sc);
-				dao.updateUser1(modifiedUser);
+				dao.updateUser3(modifiedUser);
 				System.out.println("해당 사용자를 수정했습니다.");
 				break;
 			case 5:
 				// 삭제
 				String removeUid = removeUser(sc);
 
-				dao.deleteUser1(removeUid);
+				dao.deleteUser3(removeUid);
 				System.out.println("해당 사용자를 삭제했습니다.");
 				break;
 			}
@@ -80,14 +80,17 @@ public class AppMain {
 
 		System.out.print("이름 입력 : ");
 		String name = sc.nextLine();
+		
+		System.out.print("생일 입력 : ");
+		String birth = sc.nextLine();
 
 		System.out.print("휴대폰 입력 : ");
 		String hp = sc.nextLine();
 
-		System.out.print("나이 입력 : ");
-		int age = sc.nextInt();
+		System.out.print("주소 입력 : ");
+		String addr = sc.nextLine();
 
-		User3 user = new User3(uid, name, hp, age);
+		User3 user = new User3(uid, name, birth, hp, addr);
 		return user;
 	}
 
@@ -108,14 +111,17 @@ public class AppMain {
 
 		System.out.print("수정 이름 입력 : ");
 		String name = sc.nextLine();
+		
+		System.out.print("수정 생일 입력 : ");
+		String birth = sc.nextLine();
 
 		System.out.print("수정 휴대폰 입력 : ");
 		String hp = sc.nextLine();
 
-		System.out.print("수정 나이 입력 : ");
-		int age = sc.nextInt();
+		System.out.print("수정 주소 입력 : ");
+		String addr = sc.nextLine();
 
-		User3 user = new User3(uid, name, hp, age);
+		User3 user = new User3(uid, name, birth, hp, addr);
 		return user;
 	}
 
